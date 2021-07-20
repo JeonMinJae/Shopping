@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="상세정보"
+                android:text="@string/product_detail"
                 android:textSize="30sp"
                 android:layout_marginTop="30dp"
                 android:gravity="center_horizontal" />
