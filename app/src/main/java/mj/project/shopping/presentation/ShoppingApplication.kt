@@ -13,7 +13,7 @@ class ShoppingApplication : Application(){
         super.onCreate()
 
         startKoin{
-            androidLogger(Level.ERROR)   //에러 레벨로 안드로이드 로그를 남긴다.
+            androidLogger(Level.ERROR)
             androidContext(this@ShoppingApplication)
             modules(appModule)
         }

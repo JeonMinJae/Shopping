@@ -38,6 +38,7 @@ internal class ProfileViewModel(
     fun setUserInfo(firebaseUser: FirebaseUser?) = viewModelScope.launch {
         firebaseUser?.let { user ->
             setState(
+                //firebase의 메서드들이다. displayname, photouri
                 ProfileState.Success.Registered(
                     user.displayName ?: "익명",
                     user.photoUrl,

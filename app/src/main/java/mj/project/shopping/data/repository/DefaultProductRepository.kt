@@ -15,8 +15,7 @@ class DefaultProductRepository(
     override suspend fun getProductList(): List<ProductEntity> = withContext(ioDispatcher) {
         val response = productApi.getProducts()
         return@withContext if (response.isSuccessful) {
-            //map은 for문과 같은 반복문을 사용하지 않아도 지정한 함수로 인자를 여러번 전달해 그 결과를 list 형태로 뽑아 주는 일을한다.
-            response.body()?.items?.map { it.toEntity() } ?: listOf() //body에 있는 아이템들을 꺼내서 엔티티로 바꾸고 널값이면 listof해라
+            response.body()?.items?.map { it.toEntity() } ?: listOf()
         } else {
             listOf()
         }
@@ -48,6 +47,5 @@ class DefaultProductRepository(
     }
 
     override suspend fun deleteProductItem(id: Long) {}
-
 
 }

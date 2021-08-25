@@ -9,9 +9,9 @@ internal abstract class BaseActivity<VM: BaseViewModel, VB: ViewBinding>: AppCom
 
     abstract val viewModel: VM
 
-    protected lateinit var binding: VB
-
     abstract fun getViewBinding(): VB
+
+    protected lateinit var binding: VB
 
     private lateinit var fetchJob: Job
 
@@ -32,5 +32,4 @@ internal abstract class BaseActivity<VM: BaseViewModel, VB: ViewBinding>: AppCom
         }
         super.onDestroy()
     }
-
 }

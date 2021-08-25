@@ -6,15 +6,13 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-// 내가 어떠한 요청을 어떻게 보낼건지 메서드를 정의
 interface ProductApiService {
 
-    // end point를 넣어주는것 ,필수파라미터가 있으면같이넣어준다.
-    // <> 안에는  응답받을 Body 타입의 data class를 적어준다.
     @GET("products")
     suspend fun getProducts(): Response<ProductsResponse>
 
     @GET("products/{productId}")
     suspend fun getProduct(@Path("productId") productId: Long): Response<ProductResponse>
-    //@Path는 사용자가 productId를 입력하면 다음 url에 응답한다.
+    //@Path는 @pathparameter의 줄임으로 URL 경로에 변수를 넣어주는것을 의미한다.
+    //@Path어노테이션을 이용해서 {템플릿 변수} 와 동일한 이름을 갖는 파라미터를 추가한다.
 }

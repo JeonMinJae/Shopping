@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mj.project.shopping">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name=".presentation.ShoppingApplication"
         android:allowBackup="true"
@@ -12,15 +10,20 @@
         android:roundIcon="@drawable/shop_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shopping">
-        <activity android:name=".presentation.detail.ProductDetailActivity"
-            android:theme="@style/AppTheme.PopupOverlay"/>
-        <activity android:name=".presentation.main.MainActivity">
+        <activity android:name=".presentation.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.detail.ProductDetailActivity"
+            android:theme="@style/AppTheme.PopupOverlay" />
+        <activity android:name=".presentation.main.MainActivity"/>
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

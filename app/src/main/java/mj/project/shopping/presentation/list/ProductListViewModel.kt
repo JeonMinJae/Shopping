@@ -8,7 +8,6 @@ import kotlinx.coroutines.launch
 import mj.project.shopping.domain.product.GetProductListUseCase
 import mj.project.shopping.presentation.BaseViewModel
 
-
 internal class ProductListViewModel(
     val getProductListUseCase: GetProductListUseCase
 ): BaseViewModel() {
@@ -20,5 +19,4 @@ internal class ProductListViewModel(
         _productListStateLiveData.postValue(ProductListState.Loading)
         _productListStateLiveData.postValue(ProductListState.Success(getProductListUseCase()))
     }
-
 }

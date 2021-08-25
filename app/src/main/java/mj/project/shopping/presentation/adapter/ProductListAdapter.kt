@@ -10,7 +10,7 @@ import mj.project.shopping.extensions.loadCenterCrop
 class ProductListAdapter : RecyclerView.Adapter<ProductListAdapter.ProductItemViewHolder>() {
 
     private var productList: List<ProductEntity> = listOf()
-    //(ProductEntity)->Unit의 의미는 ProductEntity 파라미터가, Unit 즉 아무것도 반환되지 않는 function 이다.
+
     private lateinit var productItemClickListener: (ProductEntity) -> Unit
 
     inner class ProductItemViewHolder(
@@ -29,7 +29,6 @@ class ProductListAdapter : RecyclerView.Adapter<ProductListAdapter.ProductItemVi
                 productItemClickListener(data)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductItemViewHolder {
@@ -44,7 +43,8 @@ class ProductListAdapter : RecyclerView.Adapter<ProductListAdapter.ProductItemVi
 
     override fun getItemCount(): Int = productList.size
 
-    fun setProductList(productList: List<ProductEntity>, productItemClickListener: (ProductEntity) -> Unit = { }) { //디폴트값넣은건 상품리스트 뿐만아니라 프로필화면에서도 주문했었던 주문내역 보기위해
+    // 프로필화면에서 내가 주문한 제품이 없을경우를 대비하여 {} 처리했다.
+    fun setProductList(productList: List<ProductEntity>, productItemClickListener: (ProductEntity) -> Unit = { }) {
         this.productList = productList
         this.productItemClickListener = productItemClickListener
         notifyDataSetChanged()

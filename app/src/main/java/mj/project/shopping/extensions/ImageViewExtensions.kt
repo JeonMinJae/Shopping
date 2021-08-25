@@ -8,7 +8,6 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory
 
-//dp->픽셀 , 이미지뷰
 private val factory = DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()
 
 internal fun ImageView.clear() = Glide.with(context).clear(this)

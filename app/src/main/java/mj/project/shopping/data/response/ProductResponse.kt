@@ -3,7 +3,6 @@ package mj.project.shopping.data.response
 import mj.project.shopping.data.entitiy.product.ProductEntity
 import java.util.*
 
-//받은 json값을 그대로 파싱하게끔
 data class ProductResponse(
     val id: String,
     val createdAt: Long,
@@ -25,5 +24,4 @@ data class ProductResponse(
             productType = productType,
             productIntroductionImage = productIntroductionImage
         )
-
 }

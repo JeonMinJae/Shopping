@@ -7,16 +7,15 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import mj.project.shopping.presentation.BaseViewModel
 
-//코루틴 사용하려고 gradle에 viewmodel 해줘야해
 internal class MainViewModel: BaseViewModel() {
-
-    override fun fetchData(): Job = Job()
 
     private var _mainStateLiveData = MutableLiveData<MainState>()
     val mainStateLiveData: LiveData<MainState> = _mainStateLiveData
 
+    override fun fetchData(): Job = Job()
+
     fun refreshOrderList() = viewModelScope.launch {
         _mainStateLiveData.postValue(MainState.RefreshOrderList)
+        // postValue : MainThread가 아닌 IO 스케쥴러를 활용하는 경우 postValue를 활용한다.
     }
-
 }

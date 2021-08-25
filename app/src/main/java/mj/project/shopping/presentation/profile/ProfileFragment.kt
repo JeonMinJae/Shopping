@@ -27,11 +27,11 @@ internal class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileB
         const val TAG = "ProfileFragment"
     }
 
-    override fun getViewBinding(): FragmentProfileBinding =
-        FragmentProfileBinding.inflate(layoutInflater)
+    override fun getViewBinding(): FragmentProfileBinding = FragmentProfileBinding.inflate(layoutInflater)
 
     override val viewModel by inject<ProfileViewModel>()
 
+    // 구글 로그인
     private val gso: GoogleSignInOptions by lazy {
         GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -39,7 +39,9 @@ internal class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileB
             .build()
     }
 
-    private val gsc by lazy { GoogleSignIn.getClient(requireActivity(), gso) }
+    private val gsc by lazy {
+        GoogleSignIn
+            .getClient(requireActivity(), gso) } // parameter activity와 googlesigninoption을 적어준다.
 
     private val firebaseAuth by lazy { FirebaseAuth.getInstance() }
 
@@ -151,7 +153,7 @@ internal class ProfileFragment : BaseFragment<ProfileViewModel, FragmentProfileB
             recyclerView.isGone = false
             adapter.setProductList(state.productList) {
                 startActivity(
-                    ProductDetailActivity.newIntent(requireContext(), it.id)
+                    ProductDetailActivity.newIntent(requireContext(), it.id) // 리스트에 해당 id값의 데이터를 가진 productDetailActivity실행
                 )
             }
         }

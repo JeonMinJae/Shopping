@@ -12,9 +12,9 @@ internal abstract class BaseFragment<VM: BaseViewModel, VB: ViewBinding>: Fragme
 
     abstract val viewModel: VM
 
-    protected lateinit var binding: VB
-
     abstract fun getViewBinding(): VB
+
+    protected lateinit var binding: VB
 
     private lateinit var fetchJob: Job
 
@@ -37,5 +37,4 @@ internal abstract class BaseFragment<VM: BaseViewModel, VB: ViewBinding>: Fragme
             fetchJob.cancel()
         }
     }
-
 }

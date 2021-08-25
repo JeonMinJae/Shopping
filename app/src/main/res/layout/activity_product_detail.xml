@@ -7,7 +7,6 @@
     tools:context=".presentation.detail.ProductDetailActivity"
     android:orientation="vertical">
 
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/imageContainer"
         android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/appBar"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"> <!--AppBarLayout 하단에 위치하게 될 위젯에 적음-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -49,8 +48,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -61,6 +58,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+            <!--scroll : 스크롤에 반응한다는 표시
+             exitUntilCollapsed : 위로 스크롤시 appbar만 남기고 아래로스크롤시 layout이 내려오기시작함
+             snap : Layout size 의 절반 크기를 기준으로 아래 위로 달라 붙는 flag이다.-->
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -103,7 +104,7 @@
                     android:layout_marginTop="16dp"
                     android:textSize="24sp"
                     android:textColor="@color/black"
-                    tools:text="asdfasdf"
+                    tools:text="식품/영양"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="12dp"
                     android:textStyle="bold"/>
@@ -117,7 +118,7 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:navigationIcon="?attr/homeAsUpIndicator"
                 android:background="@color/white"
-                tools:title="asdfasdfasdf"/>
+                tools:title="식빵"/>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>

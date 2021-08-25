@@ -24,14 +24,6 @@ import org.koin.dsl.module
 
 internal val appModule = module {
 
-    //코루틴
-    //Main: 메인 스레드. 화면 UI 작업 등을 하는 곳
-    //IO: 네트워크, DB 등 백그라운드에서 필요한 작업을 하는 곳
-    //Default: 정렬이나 무거운 계산 작업 등을 하는 곳
-    single { Dispatchers.Main }
-    single { Dispatchers.IO }
-
-
     // ViewModel (type missmatch 시에 gradle.properties에서 android.enableJetifier=true를 추가시켜주자)
     viewModel { MainViewModel() }
     viewModel { ProductListViewModel(get()) }
@@ -62,4 +54,6 @@ internal val appModule = module {
     single { provideDB(androidApplication()) }
     single { provideToDoDao(get()) }
 
+    single { Dispatchers.Main }
+    single { Dispatchers.IO }
 }

@@ -9,12 +9,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-//retrofit 객체 생성1
 internal fun provideProductApiService(retrofit: Retrofit): ProductApiService {
     return retrofit.create(ProductApiService::class.java)
 }
 
-//retrofit 객체 생성2
 internal fun provideProductRetrofit(
     okHttpClient: OkHttpClient,
     gsonConverterFactory: GsonConverterFactory,
@@ -35,14 +33,14 @@ internal fun provideGsonConverterFactory(): GsonConverterFactory {
 }
 
 internal fun buildOkHttpClient(): OkHttpClient {
-    val interceptor = HttpLoggingInterceptor() //로그
-    if (BuildConfig.DEBUG) { //디버그상태
+    val interceptor = HttpLoggingInterceptor()
+    if (BuildConfig.DEBUG) {
         interceptor.level = HttpLoggingInterceptor.Level.BODY // Logs request and response lines and their respective headers and bodies (if present).
     } else {
         interceptor.level = HttpLoggingInterceptor.Level.NONE  // No logs.
     }
     return OkHttpClient.Builder()
-        .connectTimeout(5, TimeUnit.SECONDS) //이시간동안 응답이 없으면 에러가 날것이다.
+        .connectTimeout(5, TimeUnit.SECONDS)
         .addInterceptor(interceptor)
         .build()
 }
